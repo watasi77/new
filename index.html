@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3e9">
+  <meta name="description" content="植物のある暮らしを、無理なく続ける。madoの観葉植物ケアサービス。">
+  <title>mado </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f3e9;
+      --ink: #1e3329;
+      --muted: #667267;
+      --green: #426d50;
+      --lime: #d5e184;
+      --orange: #e8794e;
+      --line: #d8dbce;
+      --white: #fffefa;
+      font-family: "Noto Sans JP", sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
+
+    .topbar { height: 78px; display: flex; align-items: center; border-bottom: 1px solid var(--line); }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; letter-spacing: .02em; }
+    .brand-mark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: var(--paper); background: var(--green); font-family: "DM Serif Display", serif; font-size: 21px; }
+    .nav { display: flex; align-items: center; gap: 34px; color: #46584b; font-size: 13px; }
+    .nav a:not(.nav-cta):hover { color: var(--orange); }
+    .nav-cta { padding: 12px 18px; color: white; background: var(--ink); border-radius: 3px; }
+
+    .hero { padding: 66px 0 84px; }
+    .hero-grid { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 54px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 21px; color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .16em; }
+    .eyebrow::before { width: 28px; height: 1px; background: var(--orange); content: ""; }
+    h1 { max-width: 520px; margin: 0; font-size: clamp(38px, 5vw, 64px); line-height: 1.48; letter-spacing: 0; font-weight: 600; }
+    h1 .latin { display: block; margin-top: -7px; color: var(--green); font: 400 clamp(43px, 5.5vw, 68px)/1.05 "DM Serif Display", serif; }
+    .hero-copy { max-width: 430px; margin: 23px 0 29px; color: var(--muted); font-size: 14px; line-height: 2.1; }
+    .primary-link { display: inline-flex; align-items: center; gap: 18px; min-height: 52px; padding: 0 21px; color: white; background: var(--green); border-radius: 3px; font-size: 13px; font-weight: 600; transition: background .2s, transform .2s; }
+    .primary-link:hover { background: var(--ink); transform: translateY(-2px); }
+    .arrow { font-size: 18px; line-height: 1; }
+    .hero-visual { position: relative; min-height: 470px; }
+    .hero-photo { position: absolute; inset: 0 28px 24px 0; overflow: hidden; background: #d9e0d0; }
+    .hero-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .photo-note { position: absolute; right: 0; bottom: 0; width: 190px; min-height: 140px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; background: var(--lime); }
+    .photo-note span:first-child { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+    .photo-note strong { max-width: 130px; font-size: 17px; line-height: 1.7; font-weight: 600; }
+    .photo-index { position: absolute; left: -13px; top: 19px; color: var(--paper); writing-mode: vertical-rl; font: 15px "DM Serif Display", serif; letter-spacing: .1em; }
+
+    .ticker { overflow: hidden; color: var(--paper); background: var(--green); }
+    .ticker-inner { min-height: 62px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 12px; letter-spacing: .1em; }
+    .ticker-item { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+    .ticker-item::before { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); content: ""; }
+
+    .section { padding: 104px 0; }
+    .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: end; margin-bottom: 47px; }
+    .section-kicker { margin: 0 0 13px; color: var(--orange); font-size: 11px; font-weight: 700; letter-spacing: .16em; }
+    h2 { margin: 0; font-size: clamp(27px, 3.2vw, 40px); line-height: 1.55; letter-spacing: 0; font-weight: 600; }
+    .section-intro { max-width: 490px; margin: 0; color: var(--muted); font-size: 13px; line-height: 2.1; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .service { min-height: 224px; padding: 27px 25px 25px 0; border-bottom: 1px solid var(--line); }
+    .service + .service { padding-left: 27px; border-left: 1px solid var(--line); }
+    .service-number { color: var(--orange); font: 20px "DM Serif Display", serif; }
+    .service h3 { margin: 24px 0 10px; font-size: 17px; font-weight: 600; }
+    .service p { max-width: 290px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+
+    .story { padding: 0 0 104px; }
+    .story-panel { display: grid; grid-template-columns: 1fr 1fr; min-height: 390px; background: #e9ebdf; }
+    .story-image { min-height: 390px; overflow: hidden; }
+    .story-image img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .story-copy { padding: 53px clamp(30px, 6vw, 78px); align-self: center; }
+    .story-copy h2 { margin-bottom: 18px; }
+    .story-copy p:not(.section-kicker) { margin: 0; color: var(--muted); font-size: 13px; line-height: 2.2; }
+    .story-small { margin-top: 26px; color: var(--green); font: 17px "DM Serif Display", serif; }
+
+    .contact { padding: 89px 0 100px; color: var(--paper); background: var(--ink); }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+    .contact .section-kicker { color: var(--lime); }
+    .contact h2 { max-width: 380px; }
+    .contact-intro { max-width: 350px; margin: 17px 0 0; color: #c5cec3; font-size: 13px; line-height: 2; }
+    .contact-email { display: inline-block; margin-top: 27px; color: var(--lime); font: 20px "DM Serif Display", serif; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: #d5ddd3; font-size: 11px; }
+    .field label span { margin-left: 5px; color: var(--lime); font-size: 10px; }
+    .field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 12px 13px; border: 1px solid #5b6c5f; border-radius: 2px; outline: none; color: white; background: #293f33; font-size: 13px; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--lime); }
+    .field input::placeholder, .field textarea::placeholder { color: #aab7aa; }
+    .field select { color: #e5ebe1; }
+    .field textarea { min-height: 115px; resize: vertical; }
+    .form-bottom { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+    .form-note { margin: 0; color: #aab7aa; font-size: 10px; line-height: 1.8; }
+    .submit { min-height: 49px; padding: 0 21px; border: 0; border-radius: 2px; color: var(--ink); background: var(--lime); font-size: 12px; font-weight: 700; cursor: pointer; transition: background .2s; }
+    .submit:hover { background: white; }
+    .form-status { grid-column: 1 / -1; min-height: 20px; margin: -5px 0 0; color: var(--lime); font-size: 12px; line-height: 1.8; }
+    footer { padding: 23px 0; background: #182a21; color: #b8c4b8; font-size: 10px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-brand { color: white; font-size: 15px; font-weight: 700; }
+    .footer-meta { display: flex; gap: 20px; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 40px, 560px); }
+      .topbar { height: 66px; }
+      .nav { gap: 17px; }
+      .nav a:not(.nav-cta) { display: none; }
+      .nav-cta { padding: 10px 13px; font-size: 11px; }
+      .hero { padding: 42px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      h1 { max-width: 460px; font-size: clamp(36px, 10vw, 54px); }
+      h1 .latin { font-size: clamp(43px, 12vw, 61px); }
+      .hero-copy { margin: 17px 0 22px; font-size: 13px; }
+      .hero-visual { min-height: auto; aspect-ratio: 1.18; }
+      .hero-photo { inset: 0 18px 18px 0; }
+      .photo-note { width: 154px; min-height: 112px; padding: 15px; }
+      .photo-note strong { font-size: 14px; }
+      .ticker-inner { min-height: 55px; justify-content: flex-start; overflow: hidden; }
+      .ticker-item { font-size: 10px; }
+      .ticker-item:nth-child(n+4) { display: none; }
+      .section { padding: 69px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 29px; }
+      h2 { font-size: 28px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service { min-height: 0; padding: 21px 0 23px; }
+      .service + .service { padding-left: 0; border-left: 0; }
+      .service h3 { margin: 12px 0 6px; }
+      .story { padding-bottom: 69px; }
+      .story-panel { grid-template-columns: 1fr; }
+      .story-image { min-height: 0; aspect-ratio: 1.45; }
+      .story-copy { padding: 31px 25px 35px; }
+      .contact { padding: 65px 0 70px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 34px; }
+      .contact h2 { font-size: 30px; }
+      .contact-form { grid-template-columns: 1fr; gap: 14px; }
+      .field.full, .form-bottom, .form-status { grid-column: auto; }
+      .form-bottom { align-items: flex-start; flex-direction: column; }
+      .submit { width: 100%; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .footer-meta { flex-wrap: wrap; gap: 10px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="top">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="mado ホーム"><span class="brand-mark">m</span>mado</a>
+      <nav class="nav" aria-label="メインナビゲーション">
+        <a href="#service">サービス</a>
+        <a href="#about">madoについて</a>
+        <a class="nav-cta" href="#contact">相談してみる <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Do you need money?</p>
+          <h1>無理のない<br>返済計画を</h1>
+          <span class="latin">ソフト闇金 mado.</span>
+          <p class="hero-copy">金銭的な事情を考慮して無理のない返済計画をご提案します</p>
+          <a class="primary-link" href="#service">madoのサービスを見る <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-visual">
+          <span class="photo-index">01 / A SLOWER WAY TO GROW</span>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=85" alt="窓辺でいきいきと育つ観葉植物">
+          </div>
+          <div class="photo-note"><span>秘密厳守</span><strong>ちょうどいい<br>返済計画</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="サービスの特徴">
+      <div class="wrap ticker-inner">
+        <span class="ticker-item">初心者の方も歓迎</span>
+        <span class="ticker-item">暮らしに合わせてご提案</span>
+        <span class="ticker-item">小さな相談からどうぞ</span>
+        <span class="ticker-item">お金のある毎日を、もっと気軽に</span>
+      </div>
+    </div>
+
+    <section class="section" id="service">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="section-kicker">WHAT WE DO</p><h2>お金のこと<br>まるごと相談</h2></div>
+          <p class="section-intro">秘密厳守、スピード審査、即日融資、まずはご相談ください</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><span class="service-number">01</span><h3>お金の相談</h3><p>スタッフが真摯にお答えします。ちょっとした質問も遠慮なくどうぞ。</p></article>
+          <article class="service"><span class="service-number">02</span><h3>金利２割〜</h3><p>あなたにあった金利、期日をご提案いたします。</p></article>
+          <article class="service"><span class="service-number">03</span><h3>返済計画の立案</h3><p>無理のない返済計画を、あなたの状況に合わせてご提案します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="about">
+      <div class="wrap story-panel">
+        <div class="story-image"><img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1000&q=85" alt="鉢植えの植物が並ぶ明るい部屋" loading="lazy"></div>
+        <div class="story-copy">
+          <p class="section-kicker">A LITTLE ABOUT MADO</p>
+          <h2>秘密厳守<br>約束厳守</h2>
+          <p>madoは、あなたのお金の事情を尊重し、秘密厳守の環境を提供します。約束は必ず守ります。</p>
+          <div class="story-small">Grow at your own pace.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="section-kicker">SAY HELLO</p>
+          <h2>まずは気軽に、<br>ご相談ください</h2>
+          <p class="contact-intro">「お金のことで悩んでいます」「返済計画を立てたい」など、小さなことでもお気軽にどうぞ。</p>
+          
+        </div>
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mbglvqpy" method="POST">
+          <div class="field"><label for="name">お名前 <span>必須</span></label><input id="name" name="name" autocomplete="name" placeholder="山田 花子" required></div>
+          <div class="field"><label for="email">メールアドレス <span>必須</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="hello@example.com" required></div>
+          <div class="field full"><label for="topic">ご相談内容</label><select id="topic" name="topic"><option value="">選択してください</option><option>融資申し込み</option><option>返済計画の立案</option><option>金利に関する相談</option><option>その他</option></select></div>
+          <div class="field full"><label for="message">メッセージ <span>必須</span></label><textarea id="message" name="message" placeholder="お気軽にご記入ください" required></textarea></div>
+          <div class="form-bottom"><p class="form-note">送信すると、入力内容の確認メッセージが表示されます。<br></p><button class="submit" type="submit">内容を送信する <span aria-hidden="true">→</span></button></div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="#top">mado</a>
+      <div class="footer-meta"><span>無理のない返済計画を</span><span>© 2026 mado</span></div>
+    </div>
+  </footer>
+  <script>
+document.querySelector("#contact-form").addEventListener("submit", async function(event) {
+    event.preventDefault(); // ページが勝手に移動するのを防ぐ
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = formData.get("name") ? formData.get("name").trim() : "ゲスト";
+    
+    const statusDiv = document.querySelector("#form-status");
+    statusDiv.textContent = "送信中...";
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            statusDiv.textContent = `${name}さん、ありがとうございます。送信が完了しました！`;
+            form.reset(); // 入力欄をキレイにリセット
+        } else {
+            statusDiv.textContent = "送信に失敗しました。時間をおいてもう一度お試しください。";
+        }
+    } catch (error) {
+        statusDiv.textContent = "エラーが発生しました。接続を確認してください。";
+    }
+});
+</script>
+</body>
+</html>
